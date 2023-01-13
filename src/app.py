@@ -34,12 +34,12 @@ def get_all():
 def add_member():
     data = request.get_json()
     jackson_family.add_member(data)
-    return {}, 200
+    return jsonify(data), 200
 
-@app.route('/member<int:id>', methods=['GET'])
+@app.route('/member/<int:id>', methods=['GET'])
 def get(id):
     member = jackson_family.get_member(id)
-    return member, 200
+    return jsonify(member), 200
 
 # this only runs if `$ python src/app.py` is executed
 if __name__ == '__main__':
