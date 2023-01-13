@@ -46,10 +46,10 @@ class FamilyStructure:
         return self._members
         
     def delete_member(self, id):
-        for member in self._members:
+        for idx, member in enumerate(self._members):
             if member["id"] == id:
-                return self._members
-        return {}
+                self._members.pop(idx)
+        return self._members
         
     def get_member(self, id):
         for member in self._members:
