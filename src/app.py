@@ -36,6 +36,11 @@ def add_member():
     jackson_family.add_member(data)
     return {}, 200
 
+@app.route('/member<int:id>', methods=['GET'])
+def get(id):
+    member = jackson_family.get_member(id)
+    return member, 200
+
 # this only runs if `$ python src/app.py` is executed
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3000))
